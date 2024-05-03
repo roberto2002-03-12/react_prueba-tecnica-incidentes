@@ -5,7 +5,6 @@ import Swal from 'sweetalert2'
 import { 
   onLoadDataBloques, onLoadDataDepartamentos,
   onLoadedDataBloqueSelect, onLoadedDataDepartamentoSelect,
-  onLoadedDataBloque, onLoadedDataDepartamento,
   onLoadedDataBloques, onLoadedDataDepartamentos,
   onDeleteDataBloque, onDeleteDataDepartamento
 } from '../../../store/ubicacion'
@@ -13,7 +12,6 @@ import { useErrorHandler } from '../../../hooks'
 
 import {
   BloqueInputProps, DepartamentoInputProps,
-  IBloque, IDepartamento,
   IPagenation
 } from '../models'
 import { AxiosError } from 'axios'

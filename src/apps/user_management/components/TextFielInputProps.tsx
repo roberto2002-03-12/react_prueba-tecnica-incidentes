@@ -3,7 +3,18 @@ import { TextField, TextFieldProps } from '@mui/material';
 import { Controller } from 'react-hook-form';
 import { TextFieldInputHookForm } from '../models'
 
-export const TextFieldWithHookForm: React.FC<TextFieldInputHookForm & TextFieldProps> = ({ name, control, label, defaultValue, rules, ...props }) => {
+export const TextFieldWithHookForm: React.FC<TextFieldInputHookForm & TextFieldProps> = 
+(
+  { 
+    name, 
+    control, 
+    label, 
+    defaultValue, 
+    rules,
+    variant = 'outlined',
+    ...props 
+  }
+) => {
   return (
      <Controller
        name={name}
@@ -12,7 +23,7 @@ export const TextFieldWithHookForm: React.FC<TextFieldInputHookForm & TextFieldP
        defaultValue={defaultValue}
        render={({ field }) => (
          <TextField
-           variant="outlined"
+           variant={variant}
            label={label}
            size="small"
            {...field}

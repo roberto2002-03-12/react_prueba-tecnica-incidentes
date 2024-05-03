@@ -14,6 +14,7 @@ import {
 import { Error } from '../shared';
 import Swal from 'sweetalert2';
 import { IStoreRedux } from '../store'
+import { IncidentePage, IncidenteSelectPage } from '../apps/incidentes-admin/pages/incidentes';
 
 export const AppRouter = () => {
   const { user } = useSelector((state: IStoreRedux) => state.auth);
@@ -52,6 +53,8 @@ export const AppRouter = () => {
             <Route path='/incidentes/ubicacion' element={ <HomeUbicacion /> } />
             <Route path='/incidentes/ubicacion/bloques' element={ <BloquePage /> } />
             <Route path='/incidentes/ubicacion/departamento' element={ <UbicacionPage /> } />
+            <Route path='/incidentes/' element={ <IncidentePage /> } />
+            <Route path='/incidentes/:id' element={ <IncidenteSelectPage /> } />
           </>
         ) : (
           <Route path='/login' element={ <Auth /> } />

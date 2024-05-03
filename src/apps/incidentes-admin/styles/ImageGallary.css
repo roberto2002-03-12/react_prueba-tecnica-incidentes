@@ -1,0 +1,29 @@
+.incidente-img-modal {
+  max-width: 500px;
+  max-height: 500;
+}
+
+.incidente-img-list {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 992px) and (min-width: 768px) {
+  .incidente-img-modal {
+    max-width: 80%;
+    max-height: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 579px) {
+  .incidente-img-modal {
+    max-width: 80%;
+    max-height: auto;
+  }
+}
+
+@media only screen and (max-width: 578px) {
+  .incidente-img-modal {
+    max-width: 300px;
+    max-height: auto;
+  }
+}

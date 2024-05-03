@@ -8,6 +8,7 @@ export * from './cat/catSlice';
 export * from './cat/slice.model';
 
 export * from './ubicacion/slice.model'
+export * from './incidente/store.model';
 
 export * from './store';
 export * from './store.model';
