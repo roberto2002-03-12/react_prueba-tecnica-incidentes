@@ -36,12 +36,20 @@ export const useAuthApi = () => {
           };
 
           if (data.user.routes[i] === '/user-management/users') {
-            option.menu = 'User management';
+            option.menu = 'Gestión de usuarios';
             option.icon = "users";
             option.url = data.user.routes[i];
           } else if (data.user.routes[i] === '/user-management/roles') {
-            option.menu = 'Roles management';
+            option.menu = 'Gestión de rol';
             option.icon = "roles";
+            option.url = data.user.routes[i];
+          } else if (data.user.routes[i] === '/incidentes/ubicacion') {
+            option.menu = 'Gestión Ubicación';
+            option.icon = "ubicacion";
+            option.url = data.user.routes[i];
+          } else if (data.user.routes[i] === '/incidentes/') {
+            option.menu = 'Gestión Incidentes';
+            option.icon = "incidente";
             option.url = data.user.routes[i];
           }
 

@@ -7,5 +7,7 @@ export * from './user_management/slice.model';
 export * from './cat/catSlice';
 export * from './cat/slice.model';
 
+export * from './ubicacion/slice.model'
+
 export * from './store';
 export * from './store.model';

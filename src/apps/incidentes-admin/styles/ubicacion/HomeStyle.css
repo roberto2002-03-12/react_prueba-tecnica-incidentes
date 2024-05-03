@@ -1,0 +1,26 @@
+.home-ubicacion-title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.home-ubicacion-link {
+  background-color: #f585b1;
+  color: white;
+  text-decoration: none;
+  width: 125px;
+  height: 35px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-ubicacion-box {
+  max-width: 300px;
+  min-width: 280px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+

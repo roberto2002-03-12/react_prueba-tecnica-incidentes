@@ -8,6 +8,9 @@ import {
   RoleCreate, RoleEdit, RolePage,
   CreateUser, EditUser
 } from '../apps/user_management/pages';
+import {
+  HomeUbicacion, BloquePage, UbicacionPage
+} from '../apps/incidentes-admin/pages/ubicacion'
 import { Error } from '../shared';
 import Swal from 'sweetalert2';
 import { IStoreRedux } from '../store'
@@ -45,6 +48,10 @@ export const AppRouter = () => {
             <Route path='/user-management/roles/create' element={ <RoleCreate /> }/>
             <Route path='/user-management/roles/edit/:id' element={ <RoleEdit /> }/>
             <Route path='/user-management/profile' element={ <UserProfile /> }/>
+            
+            <Route path='/incidentes/ubicacion' element={ <HomeUbicacion /> } />
+            <Route path='/incidentes/ubicacion/bloques' element={ <BloquePage /> } />
+            <Route path='/incidentes/ubicacion/departamento' element={ <UbicacionPage /> } />
           </>
         ) : (
           <Route path='/login' element={ <Auth /> } />

@@ -10,8 +10,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import PersonIcon from '@mui/icons-material/Person';
 import GroupsIcon from '@mui/icons-material/Groups';
-import ArticleIcon from '@mui/icons-material/Article';
-import PetsIcon from '@mui/icons-material/Pets';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import ApartmentIcon from '@mui/icons-material/Apartment';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import EastIcon from '@mui/icons-material/East';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -96,8 +96,8 @@ export const SideBar = () => {
                       opt.icon === 'home' ? <HomeIcon /> :
                       opt.icon === 'users' ? <PersonIcon /> :
                       opt.icon === 'roles' ? <GroupsIcon /> :
-                      opt.icon === 'logs' ? <ArticleIcon /> :
-                      opt.icon === 'cats' ? <PetsIcon /> :
+                      opt.icon === 'ubicacion' ? <ApartmentIcon /> :
+                      opt.icon === 'incidente' ? <LocationOnIcon /> :
                       <QuestionMarkIcon />
                     }
                   </ListItemIcon>

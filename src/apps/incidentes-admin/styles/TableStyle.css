@@ -1,0 +1,15 @@
+.incidentes-table-box {
+  margin-top: 50px;
+
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.301);
+  margin-bottom: 20px;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.incidentes-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
