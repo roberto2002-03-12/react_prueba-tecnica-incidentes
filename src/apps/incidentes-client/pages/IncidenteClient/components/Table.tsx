@@ -44,10 +44,9 @@ export const Table = ({ incidentes, loadingStateIncidente }: IncidenteTableProps
               </tr>
             </thead>
             <tbody>
-
               {
                 incidentes.map(row => (
-                  <tr>
+                  <tr key={row.id}>
                     <td>
                       <FiberManualRecordIcon
                         sx={{ 

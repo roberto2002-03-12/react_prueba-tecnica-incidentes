@@ -14,3 +14,17 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.incidente-client-table {
+  overflow-x: auto;
+}
+
+@media only screen and (max-width: 1100px) {
+  .incidente-client-table {
+    width: 95%;
+  }
+  
+  .incidente-client-header {
+    width: 95%;
+  }
+}

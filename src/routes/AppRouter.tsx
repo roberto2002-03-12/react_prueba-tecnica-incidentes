@@ -19,6 +19,7 @@ import { IncidentePage, IncidenteSelectPage } from '../apps/incidentes-admin/pag
 import IncidenteClient from '../apps/incidentes-client/pages/IncidenteClient/IncidenteClient'
 import IncidenteClientUpdate from '../apps/incidentes-client/pages/IncidenteClientUpdate/IncidenteClientUpdate'
 import IncidenteClientCreate from '../apps/incidentes-client/pages/IncidenteClientCreate/IncidenteClientCreate'
+import IncidenteClientSelect from '../apps/incidentes-client/pages/IncidenteClientSelect'
 
 export const AppRouter = () => {
   const { user } = useSelector((state: IStoreRedux) => state.auth);
@@ -63,6 +64,7 @@ export const AppRouter = () => {
             <Route path='/incidentes/client' element={ <IncidenteClient /> } />
             <Route path='/incidentes/client/create' element={ <IncidenteClientCreate /> } />
             <Route path='/incidentes/client/update/:id' element={ <IncidenteClientUpdate /> } />
+            <Route path='/incidentes/client/:id' element={ <IncidenteClientSelect /> } />
           </>
         ) : (
           <Route path='/login' element={ <Auth /> } />

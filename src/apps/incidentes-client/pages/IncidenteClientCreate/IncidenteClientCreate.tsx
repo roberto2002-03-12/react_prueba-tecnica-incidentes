@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useUbicacionApi } from '../../../incidentes-admin/hooks/useUbicacion';
 import { useIncidentesApi } from '../../../incidentes-admin/hooks/useIncidente';
@@ -10,6 +11,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import '../../styles/CreateIncidenteStyle.css'
 import { IncidenteInputProps } from '../../../incidentes-admin/models';
 import { IStoreRedux } from '../../../../store';
@@ -22,8 +24,19 @@ const inputStyle = {
   marginBottom: '10px'
 }
 
+const iconStyle = {
+  position: 'absolute',
+  left: 0,
+  marginTop: '10px',
+  marginLeft: '10px',
+  cursor: 'pointer',
+  '@media (max-width: 578px)': {
+    marginTop: '20px'
+  }
+}
+
 const IncidenteClientCreate = () => {
-  const [ closeButton, setCloseButton ] = useState(false);
+  const [closeButton, setCloseButton] = useState(false);
   const { bloqueSelect, departamentoSelect } = useSelector((value: IStoreRedux) => value.ubicacion);
 
   const { getBloquesSelect, getDepartamentoSelect } = useUbicacionApi()
@@ -33,6 +46,9 @@ const IncidenteClientCreate = () => {
     getBloquesSelect()
     getDepartamentoSelect()
   }, []);
+
+  // navegacion
+  const navigate = useNavigate();
 
   // const [files, setFiles] = useState<FileList | null>()
   const filesRef = useRef<FileList | null>(null);
@@ -70,6 +86,10 @@ const IncidenteClientCreate = () => {
 
   return (
     <Layout>
+      <ArrowBackIcon
+        sx={iconStyle}
+        onClick={() => navigate('/incidentes/client')}
+      />
       <form onSubmit={handleSubmit(onSubmit)} className='incidente-create'>
         <h2>Reportar incidencia</h2>
         <TextField
@@ -177,12 +197,12 @@ const IncidenteClientCreate = () => {
           />
         </FormControl>
 
-        <div style={{width: '300px', marginBottom: '20px'}}>
+        <div style={{ width: '300px', marginBottom: '20px' }}>
           <label htmlFor="formFileMultiple" className="form-label">{`Fotos (opcional)`}</label>
-          <input 
-            className="form-control" 
-            type="file" 
-            id="formFileMultiple" 
+          <input
+            className="form-control"
+            type="file"
+            id="formFileMultiple"
             multiple
             onChange={handleUploadImages}
             accept='image/*'

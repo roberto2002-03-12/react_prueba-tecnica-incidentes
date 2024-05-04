@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
 import { useUbicacionApi } from '../../../incidentes-admin/hooks/useUbicacion';
 import { useIncidentesApi } from '../../../incidentes-admin/hooks/useIncidente';
 import { Layout } from '../../components'
@@ -11,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 
 import { TextFieldWithHookForm } from '../../../user_management/components'
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import '../../styles/CreateIncidenteStyle.css'
 import { IncidenteUpdateProps } from '../../../incidentes-admin/models';
 import { IStoreRedux } from '../../../../store';
@@ -25,13 +26,25 @@ const inputStyle = {
   marginBottom: '10px'
 }
 
+const iconStyle = {
+  position: 'absolute',
+  left: 0,
+  marginTop: '10px',
+  marginLeft: '10px',
+  cursor: 'pointer',
+  '@media (max-width: 578px)': {
+    marginTop: '20px'
+  }
+}
+
 const IncidenteClientUpdate = () => {
-  const [ closeButton, setCloseButton ] = useState(false);
+  const [closeButton, setCloseButton] = useState(false);
   const { bloqueSelect, departamentoSelect } = useSelector((value: IStoreRedux) => value.ubicacion);
   const { incidente } = useSelector((value: IStoreRedux) => value.incidentes);
   const { id } = useParams();
   const { getBloquesSelect, getDepartamentoSelect } = useUbicacionApi()
   const { getOneIncidenteClient, updateIncidenteClient } = useIncidentesApi();
+  const navigate = useNavigate()
 
   useEffect(() => {
     getBloquesSelect()
@@ -66,6 +79,10 @@ const IncidenteClientUpdate = () => {
 
   return (
     <Layout>
+      <ArrowBackIcon
+        sx={iconStyle}
+        onClick={() => navigate('/incidentes/client')}
+      />
       <form onSubmit={handleSubmit(onSubmit)} className='incidente-create'>
         <h2>Reportar incidencia</h2>
         <TextFieldWithHookForm
@@ -133,7 +150,7 @@ const IncidenteClientUpdate = () => {
           <Controller
             name="bloqueId"
             control={control}
-            defaultValue={ incidente.bloqueId }
+            defaultValue={incidente.bloqueId}
             render={({ field }) => (
               <Select
                 labelId="role-type"
