@@ -76,7 +76,11 @@ export const useAuthApi = () => {
 
       dispatch(onSetOptions(options));
       dispatch(onLogin(data.user));
-      navigate('/user-management/home');
+      if (data.user.routes !== undefined) {
+        navigate('/user-management/home');
+      } else {
+        navigate('/incidentes/client')
+      }
     } catch (error: unknown) {
       dispatch(onLogoutUser());
       Swal.fire({
