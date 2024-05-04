@@ -1,3 +1,4 @@
+import { TypeLoadingState } from '../../../store';
 import { IUser } from '../../auth/model';
 import { IDepartamento, IBloque } from './'
 export type IncidenteEstadoType = 'progresando' | 'terminado' | 'pendiente' | '';
@@ -34,9 +35,9 @@ export interface IIncidente {
 
 export interface IncidenteInputProps {
   asunto: string;
-  estado: IncidenteEstadoType;
-  departamentoId: number;
-  bloqueId: number;
+  detalle: string;
+  departamentoId?: number | string;
+  bloqueId?: string;
 }
 
 export interface IIncidenteQuery {
@@ -46,4 +47,15 @@ export interface IIncidenteQuery {
   bloqueId?: number | string;
   createdAtStart?: string | null;
   createdAtEnd?: string | null;
+}
+
+export interface IncidenteTableProps {
+  loadingStateIncidente: TypeLoadingState;
+  incidentes: IIncidente[];
+}
+
+export interface IncidenteUpdateProps {
+  detalle?: string;
+  departamentoId?: number | string;
+  bloqueId?: number | string;
 }

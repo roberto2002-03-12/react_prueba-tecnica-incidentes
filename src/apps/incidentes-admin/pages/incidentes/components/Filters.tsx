@@ -14,7 +14,8 @@ import '../../../styles/FiltersStyle.css'
 interface FIlterInputProps {
   setParams: SetURLSearchParams;
   page: number;
-  bloquesSelect: IBloque[]
+  bloquesSelect: IBloque[];
+  includeBloqueFilter?: boolean
 }
 
 const inputStyle = {
@@ -35,7 +36,12 @@ const defaultValues: IIncidenteQuery = {
   estado: ''
 }
 
-export const Filters = ({ setParams, page, bloquesSelect }: FIlterInputProps) => {
+export const Filters = ({ 
+  setParams, 
+  page, 
+  bloquesSelect,
+  includeBloqueFilter = true
+}: FIlterInputProps) => {
   const {
     handleSubmit,
     formState: { errors },
@@ -88,33 +94,39 @@ export const Filters = ({ setParams, page, bloquesSelect }: FIlterInputProps) =>
           />
         </FormControl>
 
-        <FormControl
-          variant='outlined'
-          sx={inputStyle}
-          size='small'
-        >
-          <InputLabel id="role-type">Bloque</InputLabel>
-          <Controller
-            name="bloqueId"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <Select
-                labelId="role-type"
-                id="role-type"
-                label="Bloque"
-                {...field}
-                sx={{ width: '180px' }}
-              >
-                {
-                  bloquesSelect.map((val) => (
-                    <MenuItem key={val.id} value={val.id}>{val.nroBloque}</MenuItem>
-                  ))
-                }
-              </Select>
-            )}
-          />
-        </FormControl>
+        {
+          includeBloqueFilter === true ? (
+            <FormControl
+            variant='outlined'
+            sx={inputStyle}
+            size='small'
+          >
+            <InputLabel id="role-type">Bloque</InputLabel>
+            <Controller
+              name="bloqueId"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <Select
+                  labelId="role-type"
+                  id="role-type"
+                  label="Bloque"
+                  {...field}
+                  sx={{ width: '180px' }}
+                >
+                  {
+                    bloquesSelect.map((val) => (
+                      <MenuItem key={val.id} value={val.id}>{val.nroBloque}</MenuItem>
+                    ))
+                  }
+                </Select>
+              )}
+            />
+          </FormControl>
+          ) : <></>
+        }
+
+
 
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <Controller

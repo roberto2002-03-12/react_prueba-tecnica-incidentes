@@ -16,6 +16,10 @@ import Swal from 'sweetalert2';
 import { IStoreRedux } from '../store'
 import { IncidentePage, IncidenteSelectPage } from '../apps/incidentes-admin/pages/incidentes';
 
+import IncidenteClient from '../apps/incidentes-client/pages/IncidenteClient/IncidenteClient'
+import IncidenteClientUpdate from '../apps/incidentes-client/pages/IncidenteClientUpdate/IncidenteClientUpdate'
+import IncidenteClientCreate from '../apps/incidentes-client/pages/IncidenteClientCreate/IncidenteClientCreate'
+
 export const AppRouter = () => {
   const { user } = useSelector((state: IStoreRedux) => state.auth);
   const { logout, setUserAndOptions } = useAuthApi();
@@ -55,6 +59,10 @@ export const AppRouter = () => {
             <Route path='/incidentes/ubicacion/departamento' element={ <UbicacionPage /> } />
             <Route path='/incidentes/' element={ <IncidentePage /> } />
             <Route path='/incidentes/:id' element={ <IncidenteSelectPage /> } />
+
+            <Route path='/incidentes/client' element={ <IncidenteClient /> } />
+            <Route path='/incidentes/client/create' element={ <IncidenteClientCreate /> } />
+            <Route path='/incidentes/client/update/:id' element={ <IncidenteClientUpdate /> } />
           </>
         ) : (
           <Route path='/login' element={ <Auth /> } />

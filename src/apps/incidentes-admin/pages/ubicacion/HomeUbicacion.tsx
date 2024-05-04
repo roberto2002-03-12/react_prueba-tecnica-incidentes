@@ -5,6 +5,8 @@ import '../../styles/ubicacion/HomeStyle.css'
 export const HomeUbicacion = () => {
   return (
     <Layout>
+      <br />
+      <br />
       <h2 className='home-ubicacion-title'>¿Cual va gestionar?</h2>
       <div className='home-ubicacion-box'>
         <Link

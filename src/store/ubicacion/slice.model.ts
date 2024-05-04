@@ -17,4 +17,5 @@ export interface BloqueSlice {
     data: IDepartamento[]
   },
   departamento: IDepartamento
+  departamentoSelect: IDepartamento[]
 };

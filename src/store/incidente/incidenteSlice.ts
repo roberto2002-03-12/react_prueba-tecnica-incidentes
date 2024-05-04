@@ -27,8 +27,15 @@ export const incidenteSlice = createSlice({
     },
     onSetFinishedLoad: (state) => {
       state.loadingStateIncidente = 'finished'
-    }
+    },
     // colocar el resto para cliente
+    onDeleteIncidente: (state, { payload }) => {
+      state.incidentes.data = state.incidentes.data.filter((val: IIncidente) => val.id !== payload);
+      state.loadingStateIncidente = 'finished'
+    },
+    onSetIncidente: (state, { payload }) => {
+      state.incidente  = payload;
+    }
   }
 });
 
@@ -36,5 +43,7 @@ export const {
   onLoadIncidente,
   onLoadedIncidente,
   onLoadedIncidentes,
-  onSetFinishedLoad
+  onSetFinishedLoad,
+  onDeleteIncidente,
+  onSetIncidente
 } = incidenteSlice.actions;

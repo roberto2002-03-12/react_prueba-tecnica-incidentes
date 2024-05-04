@@ -2,14 +2,8 @@ import { useNavigate } from 'react-router-dom'
 import { SmallLoading } from '../../../../../shared';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import '../../../styles/TableStyle.css'
-import { TypeLoadingState } from '../../../../../store';
-import { IIncidente } from '../../../models';
+import { IncidenteTableProps } from '../../../models';
 import { truncateString } from '../../../../../helpers';
-
-interface IncidenteTableProps {
-  loadingStateIncidente: TypeLoadingState;
-  incidentes: IIncidente[];
-}
 
 export const Table = ({ loadingStateIncidente, incidentes }: IncidenteTableProps) => {
   const navigate = useNavigate();
